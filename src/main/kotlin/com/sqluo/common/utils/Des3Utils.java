@@ -10,13 +10,6 @@ public class Des3Utils {
 
     private final static String encoding = "utf-8";
 
-    /**
-     * ECB加密,不要IV
-     *
-     * @param _key  密钥
-     * @param _data 明文
-     * @return Base64编码的密文
-     */
     public static byte[] des3EncodeECB(String _key, String _data) {
         try {
             byte[] key = _key.getBytes(encoding);
@@ -35,13 +28,6 @@ public class Des3Utils {
 
     }
 
-    /**
-     * ECB解密,不要IV
-     *
-     * @param _key 密钥
-     * @param data Base64编码的密文
-     * @return 明文
-     */
     public static byte[] des3DecodeECB(String _key, byte[] data) {
         try {
             byte[] key = _key.getBytes(encoding);

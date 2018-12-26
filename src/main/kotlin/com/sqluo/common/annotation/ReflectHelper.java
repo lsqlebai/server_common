@@ -289,11 +289,9 @@ public class ReflectHelper {
             Method[] obj = instance.getClass().getMethods();
             for (Method method : obj) {
                 if (methodName != null && methodName.equals(method.getName())) {
-                    //如果是private修饰符的，则把可访问性设置为true
                     if (!method.isAccessible()) {
                         method.setAccessible(true);
                     }
-                    //得到方法中的所有参数信息
                     Class<?>[] parameterClazz = method.getParameterTypes();
 
                     return method.invoke(instance, arg);

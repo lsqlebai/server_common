@@ -7,9 +7,7 @@ package com.sqluo.common.exception;
  * @see ApplicationException
  */
 public class AppExceptionInfo {
-    // 异常错误码
     private int errorCode;
-    // 异常错误信息
     private String message;
 
     public AppExceptionInfo() {
