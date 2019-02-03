@@ -59,6 +59,11 @@ public class ReflectHelper {
         }
     }
 
+    public static Object getFieldValue(Object object, String fieldName) throws IllegalAccessException {
+        Field field = getFields(object).get(fieldName);
+        return field.get(object);
+    }
+
     public static HashMap<String, Field> getFields(Object object) {
         Class<?> cls = object.getClass();
         CacheKey cacheKey = new CacheKey(cls);

@@ -3,10 +3,6 @@ package com.github.lsqlebai.dto;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * 分页dto
- * @param <T>
- */
 public class PageDto<T> implements Serializable {
     private static final long serialVersionUID = 1L;
     private int pageNum;

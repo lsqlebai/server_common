@@ -36,6 +36,9 @@ object DateUtils {
         return calendar.time
     }
 
+    fun nowInt() :Int {
+        return shortFormat.getOrSet { SimpleDateFormat("yyyyMMdd") }.format(Date()).toInt()
+    }
 
     fun getYesterdayStr(): String {
         return shortFormat.getOrSet { SimpleDateFormat("yyyyMMdd") }.format(getYesterday())
@@ -60,6 +63,32 @@ object DateUtils {
     fun createByShortDate(date: String): Date {
         return shortFormat.getOrSet { SimpleDateFormat("yyyyMMdd") }.parse(date)
     }
+
+    fun unix2Date(unixTime: Long?): Date {
+        val date = Date()
+        date.time = unixTime!! * 1000
+        return date
+    }
+
+    fun dateTime(date: Date): Long {
+        return date.time / 1000
+    }
+
+    fun nowDateTime(): Long {
+        return Date().time / 1000
+    }
+
+    fun dayMoveNoFormat(date: Date, len: Int): Date {
+        return dateMoveToDate(date, len, Calendar.DATE)
+    }
+
+    private fun dateMoveToDate(date: Date, len: Int, field: Int): Date {
+        val cal = Calendar.getInstance()
+        cal.time = date
+        cal.add(field, len)
+        return cal.time
+    }
+
 }
 
 fun main(args: Array<String>) {

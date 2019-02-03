@@ -1,16 +1,17 @@
 package com.github.lsqlebai.exception;
 
-/**
- * 异常信息
- * @author yangyc
- * @since 2018/08/06
- * @see ApplicationException
- */
-public class AppExceptionInfo {
+import com.github.lsqlebai.GlobalResponseCode;
+
+public class AppExceptionInfo extends RuntimeException {
     private int errorCode;
     private String message;
 
     public AppExceptionInfo() {
+    }
+
+    public AppExceptionInfo(String message) {
+        this.errorCode = GlobalResponseCode.Companion.getFAIL_CODE();
+        this.message = message;
     }
 
     public AppExceptionInfo(int errorCode, String message) {
